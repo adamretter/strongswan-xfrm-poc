@@ -1,8 +1,8 @@
-FROM alpine:latest
+FROM ubuntu:20.04
 
 # Install strongswan and iptables
-RUN apk add --update strongswan iptables bash nano net-tools curl tcpdump rsyslog && \
-    rm -rf /tmp/* /var/tmp/* /var/cache/apk/* /var/cache/distfiles/*
+RUN apt-get install -y strongswan && \
+    apt-get clean
 
 
 # Internally uses port 500/udp and 4500/udp
